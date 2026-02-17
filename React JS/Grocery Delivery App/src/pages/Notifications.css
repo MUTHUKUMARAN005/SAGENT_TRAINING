@@ -1,0 +1,39 @@
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 26px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--dark-3);
+  transition: var(--transition);
+}
+
+.notification-item.unread {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.notification-item.read {
+  background: var(--dark-2);
+}
+
+.notification-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--gray);
+}
