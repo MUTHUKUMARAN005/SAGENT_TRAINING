@@ -1,0 +1,22 @@
+.order-status-select {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.75rem;
+  font-family: inherit;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 50px;
+}
+
+.order-detail-item {
+  padding: 14px 18px;
+  background: var(--dark);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--dark-3);
+}

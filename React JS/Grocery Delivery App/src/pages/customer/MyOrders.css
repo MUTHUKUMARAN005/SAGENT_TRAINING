@@ -1,0 +1,162 @@
+.my-orders-page {
+  padding: 32px 0 80px;
+  min-height: calc(100vh - 70px);
+}
+
+.my-orders-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.my-orders-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+/* Tabs */
+.orders-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.order-tab {
+  padding: 10px 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;
+  background: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.order-tab:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.order-tab.active {
+  background: #6366f1;
+  color: white;
+  border-color: #6366f1;
+}
+
+.tab-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+}
+
+.order-tab:not(.active) .tab-count {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* Order Card */
+.order-card-customer {
+  background: white;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+
+.occ-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.occ-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.occ-order-id {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.occ-date {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.occ-body {
+  margin-bottom: 16px;
+}
+
+.occ-store {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 12px;
+}
+
+.occ-amount-row {
+  display: flex;
+  gap: 32px;
+}
+
+.occ-amount-label {
+  display: block;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.occ-amount {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.occ-discount {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.occ-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.occ-track-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.2);
+  transition: all 0.3s;
+}
+
+.occ-track-btn:hover {
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+}

@@ -1,0 +1,16 @@
+.stock-alert-card {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.stock-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.stock-value.low {
+  color: var(--danger);
+}
+
+.stock-value.ok {
+  color: var(--success);
+}
