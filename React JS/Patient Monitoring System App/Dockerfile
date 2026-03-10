@@ -1,0 +1,27 @@
+FROM node:20-alpine AS build
+WORKDIR /app
+
+COPY patient-moniter/package*.json ./
+RUN npm ci
+
+COPY patient-moniter/ ./
+
+ARG REACT_APP_API_URL=http://localhost:8080/api
+ARG REACT_APP_GEMINI_API_KEY=
+ARG REACT_APP_GEMINI_MODEL=gemini-2.0-flash
+ARG REACT_APP_OPENAI_API_KEY=
+ARG REACT_APP_OPENAI_PROXY_URL=
+
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+ENV REACT_APP_GEMINI_API_KEY=$REACT_APP_GEMINI_API_KEY
+ENV REACT_APP_GEMINI_MODEL=$REACT_APP_GEMINI_MODEL
+ENV REACT_APP_OPENAI_API_KEY=$REACT_APP_OPENAI_API_KEY
+ENV REACT_APP_OPENAI_PROXY_URL=$REACT_APP_OPENAI_PROXY_URL
+
+RUN npm run build
+
+FROM nginx:1.27-alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

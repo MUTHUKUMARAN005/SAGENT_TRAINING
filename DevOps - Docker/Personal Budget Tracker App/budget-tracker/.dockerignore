@@ -1,0 +1,7 @@
+node_modules
+build
+.git
+.idea
+.env
+*.log
+backend/node_modules

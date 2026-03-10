@@ -1,0 +1,91 @@
+.customer-payments-page {
+  min-height: calc(100vh - 70px);
+  background: var(--cust-bg);
+  padding: 28px 0 60px;
+}
+
+.customer-payments-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.customer-payments-head {
+  margin-bottom: 16px;
+}
+
+.customer-payments-head h1 {
+  font-size: 1.9rem;
+  color: #0f172a;
+}
+
+.customer-payments-head p {
+  margin-top: 6px;
+  color: #64748b;
+}
+
+.customer-payments-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.customer-pay-stat {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.customer-pay-stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customer-pay-stat-icon.green {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.customer-pay-stat-icon.blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.customer-pay-stat-icon.orange {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.customer-pay-stat h3 {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.customer-pay-stat .value {
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-top: 3px;
+}
+
+.customer-payments-table thead th {
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.customer-payments-table tbody td {
+  color: #334155;
+}
+
+@media (max-width: 860px) {
+  .customer-payments-stats {
+    grid-template-columns: 1fr;
+  }
+}

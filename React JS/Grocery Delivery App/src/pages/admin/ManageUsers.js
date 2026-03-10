@@ -1,0 +1,272 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiPlus, FiTrash2, FiShield, FiMail, FiPhone, FiSlash, FiCheckCircle } from 'react-icons/fi';
+import PageWrapper from '../../components/common/PageWrapper';
+import Modal from '../../components/common/Modal';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
+import { getUsers, createUser, deleteUser, updateUser } from '../../api/api';
+import { useAuth } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
+
+const userTypeColors = { ADMIN: '#ef4444', MANAGER: '#6366f1', STAFF: '#10b981' };
+const BLOCKED_USERS_KEY = 'freshmart_admin_blocked_users';
+const getUserId = (user) => user?.userId ?? user?.id;
+
+const Users = () => {
+  const { user: currentUser } = useAuth();
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', phone: '', userType: 'STAFF' });
+  const [blockedIds, setBlockedIds] = useState([]);
+  const isAdmin = currentUser?.role === 'ADMIN';
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(BLOCKED_USERS_KEY) || '[]');
+      setBlockedIds(Array.isArray(saved) ? saved.map(String) : []);
+    } catch {
+      setBlockedIds([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(BLOCKED_USERS_KEY, JSON.stringify(blockedIds));
+  }, [blockedIds]);
+
+  useEffect(() => { fetchUsers(); }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const res = await getUsers();
+      const allUsers = Array.isArray(res.data) ? res.data : [];
+
+      if (isAdmin) {
+        setUsers(allUsers);
+        return;
+      }
+
+      const currentEmail = currentUser?.email?.trim()?.toLowerCase();
+      const currentId = currentUser?.userId ?? currentUser?.id;
+      const ownUsers = allUsers.filter((item) => {
+        const itemEmail = item?.email?.trim()?.toLowerCase();
+        const itemId = item?.userId ?? item?.id;
+        return (currentEmail && itemEmail === currentEmail) || (currentId != null && itemId === currentId);
+      });
+
+      if (ownUsers.length > 0) {
+        setUsers(ownUsers);
+      } else if (currentUser) {
+        setUsers([
+          {
+            userId: currentUser.userId ?? currentUser.id ?? 'current-user',
+            name: currentUser.name,
+            email: currentUser.email,
+            phone: currentUser.phone || '',
+            userType: currentUser.userType || (currentUser.role === 'SELLER' ? 'MANAGER' : currentUser.role),
+          },
+        ]);
+      } else {
+        setUsers([]);
+      }
+    }
+    catch (err) { toast.error('Failed to load users'); }
+    finally { setLoading(false); }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!isAdmin) {
+      toast.error('Only admin can create users');
+      return;
+    }
+    try {
+      await createUser(form);
+      toast.success('User created!');
+      setShowModal(false);
+      fetchUsers();
+    } catch (err) { toast.error('Create failed'); }
+  };
+
+  const handleDelete = async (id) => {
+    if (!isAdmin) {
+      toast.error('Only admin can delete users');
+      return;
+    }
+    if (window.confirm('Delete this user?')) {
+      try { await deleteUser(id); toast.success('User deleted!'); fetchUsers(); }
+      catch (err) { toast.error('Delete failed'); }
+    }
+  };
+
+  const isBlocked = (user) => {
+    const userId = getUserId(user);
+    return (
+      blockedIds.includes(String(userId)) ||
+      user?.isBlocked === true ||
+      user?.blocked === true ||
+      user?.status === 'BLOCKED'
+    );
+  };
+
+  const handleBlockToggle = async (user) => {
+    if (!isAdmin) {
+      toast.error('Only admin can block users');
+      return;
+    }
+
+    const userId = getUserId(user);
+    const blocked = isBlocked(user);
+    const nextBlocked = !blocked;
+
+    try {
+      await updateUser(userId, {
+        ...user,
+        isBlocked: nextBlocked,
+        blocked: nextBlocked,
+        status: nextBlocked ? 'BLOCKED' : 'ACTIVE',
+      });
+    } catch {
+      // Keep local fallback when backend field is not supported.
+    }
+
+    setUsers((prev) =>
+      prev.map((item) =>
+        String(getUserId(item)) === String(userId)
+          ? { ...item, isBlocked: nextBlocked, blocked: nextBlocked, status: nextBlocked ? 'BLOCKED' : 'ACTIVE' }
+          : item
+      )
+    );
+
+    setBlockedIds((prev) => {
+      const key = String(userId);
+      if (nextBlocked) return Array.from(new Set([...prev, key]));
+      return prev.filter((id) => id !== key);
+    });
+
+    toast.success(nextBlocked ? 'User blocked' : 'User unblocked');
+  };
+
+  if (loading) return <LoadingSpinner />;
+
+  return (
+    <PageWrapper>
+      <div className="page-header">
+        <h1>👤 Users</h1>
+        <p>{isAdmin ? 'Manage staff and admin accounts' : 'Your account details'}</p>
+      </div>
+
+      {isAdmin && (
+        <motion.div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 24 }}
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <motion.button className="btn btn-primary" onClick={() => setShowModal(true)}
+            whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <FiPlus /> Add User
+          </motion.button>
+        </motion.div>
+      )}
+
+      <div className="cards-grid">
+        <AnimatePresence>
+          {users.map((user, i) => (
+            <motion.div key={getUserId(user)}
+              className="stat-card purple"
+              initial={{ opacity: 0, rotateX: -10, y: 30 }}
+              animate={{ opacity: 1, rotateX: 0, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: i * 0.08, type: 'spring' }}
+              whileHover={{ y: -6 }}
+              layout
+            >
+              <motion.div
+                style={{ width: 56, height: 56, borderRadius: '50%',
+                  background: `linear-gradient(135deg, ${userTypeColors[user.userType]}, ${userTypeColors[user.userType]}88)`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '1.2rem', fontWeight: 700, marginBottom: 14 }}
+                whileHover={{ scale: 1.15 }}
+              >
+                {user.name?.charAt(0)}
+              </motion.div>
+
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 12 }}>{user.name}</h3>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
+                <span style={{ fontSize: '0.82rem', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <FiMail size={14} /> {user.email}
+                </span>
+                <span style={{ fontSize: '0.82rem', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <FiPhone size={14} /> {user.phone}
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="status-badge" style={{
+                  background: `${userTypeColors[user.userType]}20`,
+                  color: userTypeColors[user.userType]
+                }}>
+                  <FiShield size={12} /> {user.userType}
+                </span>
+                {isAdmin && (
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <motion.button
+                      className="btn btn-secondary btn-sm"
+                      onClick={() => handleBlockToggle(user)}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      {isBlocked(user) ? <FiCheckCircle size={14} /> : <FiSlash size={14} />}
+                    </motion.button>
+                    <motion.button className="btn btn-danger btn-sm" onClick={() => handleDelete(getUserId(user))}
+                      whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                      <FiTrash2 size={14} />
+                    </motion.button>
+                  </div>
+                )}
+              </div>
+
+              <div style={{ marginTop: 10 }}>
+                <span className={`status-badge ${isBlocked(user) ? 'cancelled' : 'active'}`}>
+                  {isBlocked(user) ? 'Blocked' : 'Active'}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {isAdmin && (
+        <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+          <h2>➕ New User</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Name</label>
+              <input value={form.name} onChange={e => setForm({...form, name: e.target.value})} required />
+            </div>
+            <div className="form-group">
+              <label>Email</label>
+              <input type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} required />
+            </div>
+            <div className="form-group">
+              <label>Phone</label>
+              <input value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} />
+            </div>
+            <div className="form-group">
+              <label>Role</label>
+              <select value={form.userType} onChange={e => setForm({...form, userType: e.target.value})}>
+                <option value="STAFF">Staff</option>
+                <option value="MANAGER">Manager</option>
+                <option value="ADMIN">Admin</option>
+              </select>
+            </div>
+            <div className="form-actions">
+              <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}>Cancel</button>
+              <motion.button type="submit" className="btn btn-primary" whileHover={{ scale: 1.05 }}>Create</motion.button>
+            </div>
+          </form>
+        </Modal>
+      )}
+    </PageWrapper>
+  );
+};
+
+export default Users;

@@ -1,0 +1,60 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: patient-monitor-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass123
+      MYSQL_DATABASE: patient_monitor
+      MYSQL_USER: patient_user
+      MYSQL_PASSWORD: patient_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass123"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: patient-monitor-backend
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      PORT: 8080
+      NODE_ENV: production
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: patient_user
+      DB_PASSWORD: patient_pass
+      DB_NAME: patient_monitor
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: http://localhost:8080/api
+        REACT_APP_GEMINI_API_KEY: ${REACT_APP_GEMINI_API_KEY:-}
+        REACT_APP_GEMINI_MODEL: ${REACT_APP_GEMINI_MODEL:-gemini-2.0-flash}
+        REACT_APP_OPENAI_API_KEY: ${REACT_APP_OPENAI_API_KEY:-}
+        REACT_APP_OPENAI_PROXY_URL: ${REACT_APP_OPENAI_PROXY_URL:-}
+    container_name: patient-monitor-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

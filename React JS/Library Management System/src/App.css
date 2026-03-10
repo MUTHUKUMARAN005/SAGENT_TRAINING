@@ -1,0 +1,45 @@
+/* App.css */
+.App {
+  min-height: 100vh;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(14, 165, 164, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.2) !important;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2391A4BA' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.6' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 38px !important;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #e8f1fb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 900px) {
+  main {
+    margin-left: 0 !important;
+    padding: 16px !important;
+  }
+}

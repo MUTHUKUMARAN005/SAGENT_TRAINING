@@ -1,0 +1,625 @@
+{
+  "members": [
+    {
+      "memberId": "MEM001",
+      "name": "Alice Johnson",
+      "email": "alice@email.com",
+      "phone": "555-0101",
+      "membershipDate": "2023-01-15",
+      "status": "Active"
+    },
+    {
+      "memberId": "MEM002",
+      "name": "Bob Williams",
+      "email": "bob@email.com",
+      "phone": "555-0102",
+      "membershipDate": "2023-03-22",
+      "status": "Active"
+    },
+    {
+      "memberId": "MEM003",
+      "name": "Clara Chen",
+      "email": "clara@email.com",
+      "phone": "555-0103",
+      "membershipDate": "2022-11-08",
+      "status": "Active"
+    },
+    {
+      "memberId": "MEM004",
+      "name": "David Martinez",
+      "email": "david@email.com",
+      "phone": "555-0104",
+      "membershipDate": "2024-01-10",
+      "status": "Inactive"
+    },
+    {
+      "memberId": "MEM005",
+      "name": "Eva Thompson",
+      "email": "eva@email.com",
+      "phone": "555-0105",
+      "membershipDate": "2023-06-30",
+      "status": "Active"
+    }
+  ],
+  "books": [
+    {
+      "bookId": "BK001",
+      "isbn": "978-0061120084",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "category": "Fiction",
+      "subject": "Fiction",
+      "edition": "1st",
+      "publicationYear": 1960,
+      "totalCopies": 5,
+      "availableCopies": 4,
+      "status": "Available"
+    },
+    {
+      "bookId": "BK002",
+      "isbn": "978-0451524935",
+      "title": "1984",
+      "author": "George Orwell",
+      "category": "Science Fiction",
+      "subject": "Science Fiction",
+      "edition": "3rd",
+      "publicationYear": 1949,
+      "totalCopies": 4,
+      "availableCopies": 3,
+      "status": "Available"
+    },
+    {
+      "bookId": "BK003",
+      "isbn": "978-0141439518",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "category": "Romance",
+      "subject": "Romance",
+      "edition": "2nd",
+      "publicationYear": 1813,
+      "totalCopies": 6,
+      "availableCopies": 6,
+      "status": "Available"
+    },
+    {
+      "bookId": "BK004",
+      "isbn": "978-0743273565",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "category": "Classic",
+      "subject": "Classic",
+      "edition": "1st",
+      "publicationYear": 1925,
+      "totalCopies": 3,
+      "availableCopies": 3,
+      "status": "Available"
+    },
+    {
+      "bookId": "BK005",
+      "isbn": "978-0060883287",
+      "title": "100 Years of Solitude",
+      "author": "Gabriel Garcia Marquez",
+      "category": "Magical Realism",
+      "subject": "Magical Realism",
+      "edition": "4th",
+      "publicationYear": 1967,
+      "totalCopies": 4,
+      "availableCopies": 4,
+      "status": "Available"
+    }
+  ],
+  "borrowingRecords": [
+    {
+      "recordId": "BR001",
+      "memberId": "MEM001",
+      "memberName": "Alice Johnson",
+      "memberEmail": "alice@email.com",
+      "member": {
+        "memberId": "MEM001",
+        "name": "Alice Johnson",
+        "email": "alice@email.com"
+      },
+      "bookId": "BK002",
+      "bookTitle": "1984",
+      "linkedBookId": "BK002",
+      "borrowDate": "2026-02-15",
+      "dueDate": "2026-03-01",
+      "returnDate": "",
+      "fineAmount": 0,
+      "status": "Issued"
+    }
+  ],
+  "authors": [
+    {
+      "authorId": "AUT001",
+      "name": "Harper Lee",
+      "biography": "American novelist known for To Kill a Mockingbird."
+    },
+    {
+      "authorId": "AUT002",
+      "name": "George Orwell",
+      "biography": "English novelist known for 1984."
+    },
+    {
+      "authorId": "AUT003",
+      "name": "Jane Austen",
+      "biography": "English novelist known for Pride and Prejudice."
+    },
+    {
+      "authorId": "AUT004",
+      "name": "F. Scott Fitzgerald",
+      "biography": "American novelist of the Jazz Age."
+    },
+    {
+      "authorId": "AUT005",
+      "name": "Gabriel Garcia Marquez",
+      "biography": "Colombian novelist and Nobel laureate."
+    }
+  ],
+  "libraries": [
+    {
+      "libraryId": "LIB001",
+      "name": "Central City Library",
+      "location": "123 Main Street",
+      "contactEmail": "central@citylib.org"
+    },
+    {
+      "libraryId": "LIB002",
+      "name": "Westside Community Library",
+      "location": "456 West Avenue",
+      "contactEmail": "west@citylib.org"
+    },
+    {
+      "libraryId": "LIB003",
+      "name": "University Research Library",
+      "location": "789 Campus Drive",
+      "contactEmail": "research@unilib.edu"
+    },
+    {
+      "libraryId": "LIB004",
+      "name": "Children's Discovery Library",
+      "location": "321 Park Lane",
+      "contactEmail": "kids@discoverylib.org"
+    },
+    {
+      "libraryId": "LIB005",
+      "name": "Digital Media Library",
+      "location": "654 Tech Boulevard",
+      "contactEmail": "digital@medialib.org"
+    }
+  ],
+  "librarians": [
+    {
+      "librarianId": "LBRN001",
+      "name": "Sarah Mitchell",
+      "email": "sarah@citylib.org",
+      "password": "",
+      "role": "Head Librarian"
+    },
+    {
+      "librarianId": "LBRN002",
+      "name": "James Cooper",
+      "email": "james@citylib.org",
+      "password": "",
+      "role": "Assistant Librarian"
+    },
+    {
+      "librarianId": "LBRN003",
+      "name": "Maria Gonzalez",
+      "email": "maria@unilib.edu",
+      "password": "",
+      "role": "Research Librarian"
+    },
+    {
+      "librarianId": "LBRN004",
+      "name": "Tom Baker",
+      "email": "tom@discoverylib.org",
+      "password": "",
+      "role": "Children's Librarian"
+    },
+    {
+      "librarianId": "LBRN005",
+      "name": "Linda Park",
+      "email": "linda@medialib.org",
+      "password": "",
+      "role": "Digital Services"
+    }
+  ],
+  "categories": [
+    {
+      "categoryId": "CAT001",
+      "name": "Fiction",
+      "description": "General fiction titles",
+      "status": "Active"
+    },
+    {
+      "categoryId": "CAT002",
+      "name": "Science Fiction",
+      "description": "Futuristic and speculative titles",
+      "status": "Active"
+    },
+    {
+      "categoryId": "CAT003",
+      "name": "Romance",
+      "description": "Romantic fiction and literature",
+      "status": "Active"
+    },
+    {
+      "categoryId": "CAT004",
+      "name": "History",
+      "description": "Historical studies and biographies",
+      "status": "Active"
+    },
+    {
+      "categoryId": "CAT005",
+      "name": "Reference",
+      "description": "Reference manuals and encyclopedias",
+      "status": "Inactive"
+    }
+  ],
+  "catalogEntries": [
+    {
+      "entryId": "CAT001",
+      "bookId": "BK001",
+      "libraryId": "LIB001",
+      "book": {
+        "title": "To Kill a Mockingbird"
+      },
+      "library": {
+        "name": "Central City Library"
+      },
+      "dateAdded": "2022-06-15",
+      "lastUpdated": "2024-01-10"
+    },
+    {
+      "entryId": "CAT002",
+      "bookId": "BK002",
+      "libraryId": "LIB001",
+      "book": {
+        "title": "1984"
+      },
+      "library": {
+        "name": "Central City Library"
+      },
+      "dateAdded": "2022-07-20",
+      "lastUpdated": "2024-02-15"
+    },
+    {
+      "entryId": "CAT003",
+      "bookId": "BK003",
+      "libraryId": "LIB002",
+      "book": {
+        "title": "Pride and Prejudice"
+      },
+      "library": {
+        "name": "Westside Community Library"
+      },
+      "dateAdded": "2023-01-05",
+      "lastUpdated": "2024-03-01"
+    },
+    {
+      "entryId": "CAT004",
+      "bookId": "BK004",
+      "libraryId": "LIB003",
+      "book": {
+        "title": "The Great Gatsby"
+      },
+      "library": {
+        "name": "University Research Library"
+      },
+      "dateAdded": "2023-04-12",
+      "lastUpdated": "2024-01-20"
+    },
+    {
+      "entryId": "CAT005",
+      "bookId": "BK005",
+      "libraryId": "LIB004",
+      "book": {
+        "title": "100 Years of Solitude"
+      },
+      "library": {
+        "name": "Children's Discovery Library"
+      },
+      "dateAdded": "2023-08-30",
+      "lastUpdated": "2024-04-05"
+    }
+  ],
+  "bookCopies": [
+    {
+      "copyId": "CP001",
+      "bookId": "BK001",
+      "libraryId": "LIB001",
+      "book": {
+        "title": "To Kill a Mockingbird"
+      },
+      "library": {
+        "name": "Central City Library"
+      },
+      "status": "Available",
+      "location": "Shelf A-12"
+    },
+    {
+      "copyId": "CP002",
+      "bookId": "BK002",
+      "libraryId": "LIB001",
+      "book": {
+        "title": "1984"
+      },
+      "library": {
+        "name": "Central City Library"
+      },
+      "status": "Borrowed",
+      "location": "Shelf B-05"
+    },
+    {
+      "copyId": "CP003",
+      "bookId": "BK003",
+      "libraryId": "LIB002",
+      "book": {
+        "title": "Pride and Prejudice"
+      },
+      "library": {
+        "name": "Westside Community Library"
+      },
+      "status": "Available",
+      "location": "Shelf C-08"
+    },
+    {
+      "copyId": "CP004",
+      "bookId": "BK004",
+      "libraryId": "LIB003",
+      "book": {
+        "title": "The Great Gatsby"
+      },
+      "library": {
+        "name": "University Research Library"
+      },
+      "status": "Reserved",
+      "location": "Shelf D-03"
+    },
+    {
+      "copyId": "CP005",
+      "bookId": "BK005",
+      "libraryId": "LIB004",
+      "book": {
+        "title": "100 Years of Solitude"
+      },
+      "library": {
+        "name": "Children's Discovery Library"
+      },
+      "status": "Available",
+      "location": "Shelf E-11"
+    }
+  ],
+  "fines": [
+    {
+      "fineId": "FN001",
+      "memberId": "MEM004",
+      "memberName": "David Martinez",
+      "memberEmail": "david@email.com",
+      "member": {
+        "memberId": "MEM004",
+        "name": "David Martinez",
+        "email": "david@email.com"
+      },
+      "amount": 3.5,
+      "status": "Unpaid",
+      "dueDate": "2024-09-03",
+      "paidDate": ""
+    },
+    {
+      "fineId": "FN002",
+      "memberId": "MEM001",
+      "memberName": "Alice Johnson",
+      "memberEmail": "alice@email.com",
+      "member": {
+        "memberId": "MEM001",
+        "name": "Alice Johnson",
+        "email": "alice@email.com"
+      },
+      "amount": 1,
+      "status": "Paid",
+      "dueDate": "2024-07-15",
+      "paidDate": "2024-07-20"
+    },
+    {
+      "fineId": "FN003",
+      "memberId": "MEM002",
+      "memberName": "Bob Williams",
+      "memberEmail": "bob@email.com",
+      "member": {
+        "memberId": "MEM002",
+        "name": "Bob Williams",
+        "email": "bob@email.com"
+      },
+      "amount": 0.5,
+      "status": "Paid",
+      "dueDate": "2024-05-10",
+      "paidDate": "2024-05-12"
+    },
+    {
+      "fineId": "FN004",
+      "memberId": "MEM003",
+      "memberName": "Clara Chen",
+      "memberEmail": "clara@email.com",
+      "member": {
+        "memberId": "MEM003",
+        "name": "Clara Chen",
+        "email": "clara@email.com"
+      },
+      "amount": 5,
+      "status": "Unpaid",
+      "dueDate": "2024-10-19",
+      "paidDate": ""
+    },
+    {
+      "fineId": "FN005",
+      "memberId": "MEM005",
+      "memberName": "Eva Thompson",
+      "memberEmail": "eva@email.com",
+      "member": {
+        "memberId": "MEM005",
+        "name": "Eva Thompson",
+        "email": "eva@email.com"
+      },
+      "amount": 2,
+      "status": "Waived",
+      "dueDate": "2024-06-01",
+      "paidDate": ""
+    }
+  ],
+  "requests": [
+    {
+      "requestId": "REQ001",
+      "memberId": "MEM001",
+      "memberName": "Alice Johnson",
+      "memberEmail": "alice@email.com",
+      "member": {
+        "memberId": "MEM001",
+        "name": "Alice Johnson",
+        "email": "alice@email.com"
+      },
+      "type": "Book Reservation",
+      "message": "Reserve The Great Gatsby.",
+      "requestDate": "2024-10-08",
+      "status": "Pending"
+    },
+    {
+      "requestId": "REQ002",
+      "memberId": "MEM002",
+      "memberName": "Bob Williams",
+      "memberEmail": "bob@email.com",
+      "member": {
+        "memberId": "MEM002",
+        "name": "Bob Williams",
+        "email": "bob@email.com"
+      },
+      "type": "Book Request",
+      "message": "Request Dune by Frank Herbert.",
+      "requestDate": "2024-09-25",
+      "status": "Approved"
+    },
+    {
+      "requestId": "REQ003",
+      "memberId": "MEM003",
+      "memberName": "Clara Chen",
+      "memberEmail": "clara@email.com",
+      "member": {
+        "memberId": "MEM003",
+        "name": "Clara Chen",
+        "email": "clara@email.com"
+      },
+      "type": "Renewal",
+      "message": "Renew current borrowing for one week.",
+      "requestDate": "2024-10-01",
+      "status": "Completed"
+    },
+    {
+      "requestId": "REQ004",
+      "memberId": "MEM004",
+      "memberName": "David Martinez",
+      "memberEmail": "david@email.com",
+      "member": {
+        "memberId": "MEM004",
+        "name": "David Martinez",
+        "email": "david@email.com"
+      },
+      "type": "Book Reservation",
+      "message": "Reserve clean science fiction copy.",
+      "requestDate": "2024-10-12",
+      "status": "Pending"
+    },
+    {
+      "requestId": "REQ005",
+      "memberId": "MEM005",
+      "memberName": "Eva Thompson",
+      "memberEmail": "eva@email.com",
+      "member": {
+        "memberId": "MEM005",
+        "name": "Eva Thompson",
+        "email": "eva@email.com"
+      },
+      "type": "Book Reservation",
+      "message": "Reserve first available copy.",
+      "requestDate": "2024-10-15",
+      "status": "Rejected"
+    }
+  ],
+  "notifications": [
+    {
+      "notificationId": "NOT001",
+      "memberId": "MEM001",
+      "memberName": "Alice Johnson",
+      "memberEmail": "alice@email.com",
+      "member": {
+        "memberId": "MEM001",
+        "name": "Alice Johnson",
+        "email": "alice@email.com"
+      },
+      "type": "Due Date Reminder",
+      "message": "Your issued book \"1984\" is due on 2024-10-15.",
+      "sentDate": "2024-10-13",
+      "status": "Sent"
+    },
+    {
+      "notificationId": "NOT002",
+      "memberId": "MEM004",
+      "memberName": "David Martinez",
+      "memberEmail": "david@email.com",
+      "member": {
+        "memberId": "MEM004",
+        "name": "David Martinez",
+        "email": "david@email.com"
+      },
+      "type": "Fine Notification",
+      "message": "Your account has an overdue fine of $3.50.",
+      "sentDate": "2024-09-04",
+      "status": "Sent"
+    },
+    {
+      "notificationId": "NOT003",
+      "memberId": "MEM002",
+      "memberName": "Bob Williams",
+      "memberEmail": "bob@email.com",
+      "member": {
+        "memberId": "MEM002",
+        "name": "Bob Williams",
+        "email": "bob@email.com"
+      },
+      "type": "Book Approval",
+      "message": "Your request for \"Dune\" has been approved.",
+      "sentDate": "2024-09-28",
+      "status": "Read"
+    },
+    {
+      "notificationId": "NOT004",
+      "memberId": "MEM003",
+      "memberName": "Clara Chen",
+      "memberEmail": "clara@email.com",
+      "member": {
+        "memberId": "MEM003",
+        "name": "Clara Chen",
+        "email": "clara@email.com"
+      },
+      "type": "Due Date Reminder",
+      "message": "Please return \"Pride and Prejudice\" by 2024-10-19.",
+      "sentDate": "2024-10-16",
+      "status": "Read"
+    },
+    {
+      "notificationId": "NOT005",
+      "memberId": "MEM005",
+      "memberName": "Eva Thompson",
+      "memberEmail": "eva@email.com",
+      "member": {
+        "memberId": "MEM005",
+        "name": "Eva Thompson",
+        "email": "eva@email.com"
+      },
+      "type": "Book Approval",
+      "message": "Your reservation is ready for pickup.",
+      "sentDate": "2024-10-11",
+      "status": "Sent"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+node_modules
+build
+patient-moniter/node_modules
+patient-moniter/build
+backend/node_modules
+npm-debug.log
+.git
+.gitignore
+.idea
+.zencoder
+.zenflow
+.env
+.env.*
+patient-moniter/.env
+patient-moniter/.env.*
