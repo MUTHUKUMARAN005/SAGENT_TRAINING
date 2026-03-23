@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0f172a;border-radius:16px;overflow:hidden;">
+    <div style="background:linear-gradient(135deg,#1d4ed8,#3b82f6);padding:40px 30px;text-align:center;">
+        <h1 style="color:#fff;margin:0;font-size:28px;">❤️ DaanSetu</h1>
+        <p style="color:#bfdbfe;margin:8px 0 0;font-size:14px;">Transparent Donation Platform</p>
+    </div>
+    <div style="padding:30px;">
+        <h2 style="color:#e2e8f0;margin:0 0 15px;" th:text="'Welcome, ' + ${userName} + '! 👋'">Welcome!</h2>
+        <p style="color:#94a3b8;font-size:15px;line-height:1.6;">
+            Thank you for joining DaanSetu. Please verify your email address to access all features.
+        </p>
+        <div style="text-align:center;margin:30px 0;">
+            <a th:href="${verifyUrl}" style="display:inline-block;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;text-decoration:none;padding:14px 40px;border-radius:12px;font-weight:600;font-size:16px;">
+                ✅ Verify Email Address
+            </a>
+        </div>
+        <p style="color:#64748b;font-size:13px;" th:text="'This link expires in ' + ${expiryHours} + ' hours.'">Expires soon.</p>
+    </div>
+</div>
+</body>
+</html>

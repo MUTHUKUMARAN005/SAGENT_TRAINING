@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0f172a;border-radius:16px;overflow:hidden;">
+    <div style="background:linear-gradient(135deg,#7c3aed,#a855f7);padding:40px 30px;text-align:center;">
+        <h1 style="color:#fff;margin:0;font-size:32px;">💖 Thank You!</h1>
+        <p style="color:#e9d5ff;margin:10px 0 0;">You're making the world better</p>
+    </div>
+    <div style="padding:30px;">
+        <h2 style="color:#e2e8f0;" th:text="'Dear ' + ${donorName} + ','">Dear Donor,</h2>
+        <p style="color:#94a3b8;line-height:1.7;">
+            Your donation of <strong style="color:#22c55e;" th:text="'₹' + ${amount}">₹0</strong> to
+            <strong style="color:#3b82f6;" th:text="'&quot;' + ${campaignTitle} + '&quot;'">Campaign</strong>
+            is creating real impact.
+        </p>
+        <div style="text-align:center;margin:25px 0;">
+            <a th:href="${campaignsUrl}" style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;text-decoration:none;padding:12px 35px;border-radius:12px;font-weight:600;">
+                🎯 Explore More Campaigns
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

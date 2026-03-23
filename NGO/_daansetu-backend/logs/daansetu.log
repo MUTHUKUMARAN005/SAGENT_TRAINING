@@ -1,0 +1,331 @@
+2026-03-15 15:21:28.632 INFO  [restartedMain] com.daansetu.DaanSetuApplication - Starting DaanSetuApplication using Java 21.0.7 with PID 20968 (C:\Users\USER\Downloads\_daansetu-backend\daansetu-backend\target\classes started by USER in C:\Users\USER\Downloads\_daansetu-backend)
+2026-03-15 15:21:28.635 DEBUG [restartedMain] com.daansetu.DaanSetuApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-03-15 15:21:28.637 INFO  [restartedMain] com.daansetu.DaanSetuApplication - The following 1 profile is active: "dev"
+2026-03-15 15:21:28.793 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-15 15:21:28.794 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-15 15:21:33.872 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-15 15:21:34.239 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 340 ms. Found 19 JPA repository interfaces.
+2026-03-15 15:21:37.026 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-15 15:21:37.074 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-15 15:21:37.075 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-03-15 15:21:37.243 INFO  [restartedMain] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2026-03-15 15:21:37.244 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8446 ms
+2026-03-15 15:21:38.364 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-15 15:21:38.534 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-03-15 15:21:38.654 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-03-15 15:21:39.603 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-15 15:21:39.684 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - DaanSetuHikariPool - Starting...
+2026-03-15 15:21:40.245 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - DaanSetuHikariPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@37f096f4
+2026-03-15 15:21:40.251 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - DaanSetuHikariPool - Start completed.
+2026-03-15 15:21:40.533 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-15 15:21:44.492 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-15 15:21:44.724 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table blockchain_transactions 
+       modify column contract_address varchar(255)
+2026-03-15 15:21:45.085 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table blockchain_transactions 
+       modify column from_address varchar(255)
+2026-03-15 15:21:45.245 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table blockchain_transactions 
+       modify column network varchar(255)
+2026-03-15 15:21:45.429 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table blockchain_transactions 
+       modify column raw_data TEXT
+2026-03-15 15:21:45.448 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table blockchain_transactions 
+       modify column status varchar(255)
+2026-03-15 15:21:45.568 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table blockchain_transactions 
+       modify column to_address varchar(255)
+2026-03-15 15:21:45.703 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table blockchain_transactions 
+       modify column tx_hash varchar(255)
+2026-03-15 15:21:45.736 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table campaigns 
+       modify column city varchar(255)
+2026-03-15 15:21:45.804 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table campaigns 
+       modify column description TEXT
+2026-03-15 15:21:45.842 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table campaigns 
+       modify column image varchar(255)
+2026-03-15 15:21:46.009 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table campaigns 
+       modify column state varchar(255)
+2026-03-15 15:21:46.054 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table campaigns 
+       modify column title varchar(255) not null
+2026-03-15 15:21:46.362 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donation_items 
+       modify column category varchar(255)
+2026-03-15 15:21:46.385 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donation_items 
+       modify column description TEXT
+2026-03-15 15:21:46.408 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donation_items 
+       modify column item_name varchar(255)
+2026-03-15 15:21:46.429 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donation_receipts 
+       modify column certificate_url varchar(255)
+2026-03-15 15:21:46.590 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donation_receipts 
+       modify column pdf_url varchar(255)
+2026-03-15 15:21:46.718 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donation_receipts 
+       modify column receipt_number varchar(255) not null
+2026-03-15 15:21:46.849 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donation_requests 
+       modify column request_message TEXT
+2026-03-15 15:21:46.890 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table donations 
+       modify column message varchar(255)
+2026-03-15 15:21:47.077 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table email_logs 
+       modify column error_message TEXT
+2026-03-15 15:21:47.106 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table email_logs 
+       modify column recipient_email varchar(255) not null
+2026-03-15 15:21:47.127 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table email_logs 
+       modify column subject varchar(255)
+2026-03-15 15:21:47.235 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table email_logs 
+       modify column template_name varchar(255)
+2026-03-15 15:21:47.252 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column address TEXT
+2026-03-15 15:21:47.289 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column city varchar(255)
+2026-03-15 15:21:47.331 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column description TEXT
+2026-03-15 15:21:47.377 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column email varchar(255)
+2026-03-15 15:21:47.414 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column logo varchar(255)
+2026-03-15 15:21:47.592 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column ngo_name varchar(255) not null
+2026-03-15 15:21:47.630 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column pan_number varchar(255)
+2026-03-15 15:21:47.750 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column phone varchar(255)
+2026-03-15 15:21:47.874 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column registration_number varchar(255)
+2026-03-15 15:21:47.918 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column section80g_number varchar(255)
+2026-03-15 15:21:47.948 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column state varchar(255)
+2026-03-15 15:21:47.986 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table ngos 
+       modify column website varchar(255)
+2026-03-15 15:21:48.131 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table notifications 
+       modify column message TEXT
+2026-03-15 15:21:48.152 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table notifications 
+       modify column reference_type varchar(255)
+2026-03-15 15:21:48.265 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table notifications 
+       modify column title varchar(255) not null
+2026-03-15 15:21:48.422 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table otp_records 
+       modify column email varchar(255)
+2026-03-15 15:21:48.454 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table otp_records 
+       modify column otp varchar(255) not null
+2026-03-15 15:21:48.563 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table otp_records 
+       modify column phone varchar(255) not null
+2026-03-15 15:21:48.672 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table password_reset_tokens 
+       modify column otp varchar(255)
+2026-03-15 15:21:48.808 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table payments 
+       modify column gateway_response varchar(255)
+2026-03-15 15:21:48.941 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table payments 
+       modify column screenshot_url varchar(255)
+2026-03-15 15:21:49.069 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table payments 
+       modify column transaction_id varchar(255)
+2026-03-15 15:21:49.094 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table pickup_requests 
+       modify column contact_phone varchar(255)
+2026-03-15 15:21:49.253 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table pickup_requests 
+       modify column donor_address TEXT
+2026-03-15 15:21:49.283 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table pickup_requests 
+       modify column notes TEXT
+2026-03-15 15:21:49.346 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table pickup_requests 
+       modify column time_slot varchar(255)
+2026-03-15 15:21:49.486 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table sms_logs 
+       modify column error_message TEXT
+2026-03-15 15:21:49.511 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table sms_logs 
+       modify column message TEXT
+2026-03-15 15:21:49.531 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table sms_logs 
+       modify column phone_number varchar(255) not null
+2026-03-15 15:21:49.631 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table sms_logs 
+       modify column provider_sid varchar(255)
+2026-03-15 15:21:49.646 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table sms_logs 
+       modify column purpose varchar(255)
+2026-03-15 15:21:49.751 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table task_assignments 
+       modify column description varchar(255)
+2026-03-15 15:21:49.879 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table urgent_needs 
+       modify column message TEXT
+2026-03-15 15:21:49.898 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table urgent_needs 
+       modify column title varchar(255)
+2026-03-15 15:21:49.997 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table users 
+       modify column address TEXT
+2026-03-15 15:21:50.086 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table users 
+       modify column city varchar(255)
+2026-03-15 15:21:50.155 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table users 
+       modify column email varchar(255) not null
+2026-03-15 15:21:50.232 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table users 
+       modify column name varchar(255) not null
+2026-03-15 15:21:50.364 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table users 
+       modify column pan_number varchar(255)
+2026-03-15 15:21:50.547 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table users 
+       modify column phone varchar(255)
+2026-03-15 15:21:50.784 DEBUG [restartedMain] org.hibernate.SQL - 
+    alter table users 
+       modify column profile_image varchar(255)
+2026-03-15 15:21:51.316 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-15 15:21:52.397 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-15 15:21:53.815 DEBUG [restartedMain] c.d.security.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-03-15 15:21:54.116 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-03-15 15:21:57.229 INFO  [restartedMain] c.d.service.FileStorageService - File storage initialized at: C:\Users\USER\Downloads\_daansetu-backend\uploads
+2026-03-15 15:21:58.792 DEBUG [restartedMain] o.s.w.s.s.s.WebSocketHandlerMapping - Patterns [/ws/**] in 'stompWebSocketHandlerMapping'
+2026-03-15 15:22:00.078 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 5 endpoints beneath base path '/actuator'
+2026-03-15 15:22:00.745 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.AuthController:
+	
+2026-03-15 15:22:00.746 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.BlockchainController:
+	
+2026-03-15 15:22:00.746 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.CampaignController:
+	
+2026-03-15 15:22:00.747 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.CarbonController:
+	
+2026-03-15 15:22:00.747 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.DashboardController:
+	
+2026-03-15 15:22:00.747 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.DonationController:
+	
+2026-03-15 15:22:00.747 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.FileController:
+	
+2026-03-15 15:22:00.747 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.NGOController:
+	
+2026-03-15 15:22:00.748 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.NotificationController:
+	
+2026-03-15 15:22:00.748 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.PaymentController:
+	
+2026-03-15 15:22:00.748 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.PickupController:
+	
+2026-03-15 15:22:00.749 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.ReceiptController:
+	
+2026-03-15 15:22:00.749 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.UserController:
+	
+2026-03-15 15:22:00.750 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.VolunteerController:
+	
+2026-03-15 15:22:00.758 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.d.c.WebSocketController:
+	{[MESSAGE],[/donation.subscribe]}: subscribeDonations(Map)
+	{[MESSAGE],[/campaign.subscribe]}: subscribeCampaigns(Map)
+2026-03-15 15:22:00.760 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	
+2026-03-15 15:22:00.762 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	o.s.w.a.OpenApiWebMvcResource:
+	
+2026-03-15 15:22:00.762 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	
+2026-03-15 15:22:00.762 DEBUG [restartedMain] o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	o.s.w.u.SwaggerConfigResource:
+	
+2026-03-15 15:22:02.625 WARN  [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute database script from resource [class path resource [schema.sql]]
+2026-03-15 15:22:02.643 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-15 15:22:02.651 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - DaanSetuHikariPool - Shutdown initiated...
+2026-03-15 15:22:02.670 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - DaanSetuHikariPool - Shutdown completed.
+2026-03-15 15:22:02.679 INFO  [restartedMain] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-03-15 15:22:02.728 INFO  [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-15 15:22:02.778 ERROR [restartedMain] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute database script from resource [class path resource [schema.sql]]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.daansetu.DaanSetuApplication.main(DaanSetuApplication.java:15)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.jdbc.datasource.init.UncategorizedScriptException: Failed to execute database script from resource [class path resource [schema.sql]]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:305)
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254)
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54)
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 21 common frames omitted
+Caused by: java.lang.IllegalArgumentException: 'script' must not be null or empty
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.jdbc.datasource.init.ScriptUtils.splitSqlScript(ScriptUtils.java:475)
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:252)
+	... 31 common frames omitted

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0f172a;border-radius:16px;overflow:hidden;">
+    <div style="background:linear-gradient(135deg,#16a34a,#22c55e);padding:40px 30px;text-align:center;">
+        <h1 style="color:#fff;margin:0;font-size:28px;">✅ Donation Receipt</h1>
+        <p style="color:#bbf7d0;margin:8px 0 0;font-size:14px;">Tax Deductible under 80G</p>
+    </div>
+    <div style="padding:30px;">
+        <h2 style="color:#e2e8f0;" th:text="'Thank you, ' + ${donorName} + '! 🙏'">Thank you!</h2>
+        <div style="background:#1e293b;border-radius:12px;padding:20px;margin:20px 0;">
+            <table style="width:100%;border-collapse:collapse;">
+                <tr><td style="color:#94a3b8;padding:8px;">Receipt</td><td style="color:#3b82f6;text-align:right;font-family:monospace;" th:text="${receiptNumber}">REC-XXX</td></tr>
+                <tr><td style="color:#94a3b8;padding:8px;">Amount</td><td style="color:#22c55e;text-align:right;font-weight:700;font-size:18px;" th:text="'₹' + ${amount}">₹0</td></tr>
+                <tr><td style="color:#94a3b8;padding:8px;">Campaign</td><td style="color:#e2e8f0;text-align:right;" th:text="${campaignTitle}">Campaign</td></tr>
+                <tr><td style="color:#94a3b8;padding:8px;">NGO</td><td style="color:#e2e8f0;text-align:right;" th:text="${ngoName}">NGO</td></tr>
+                <tr><td style="color:#94a3b8;padding:8px;">Date</td><td style="color:#e2e8f0;text-align:right;" th:text="${donationDate}">Date</td></tr>
+            </table>
+        </div>
+        <div style="text-align:center;margin:25px 0;">
+            <a th:href="${receiptUrl}" style="display:inline-block;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;text-decoration:none;padding:12px 35px;border-radius:12px;font-weight:600;">
+                📄 View Full Receipt
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

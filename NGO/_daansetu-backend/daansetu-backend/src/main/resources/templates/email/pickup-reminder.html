@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0f172a;border-radius:16px;overflow:hidden;">
+    <div style="background:linear-gradient(135deg,#f97316,#fb923c);padding:40px 30px;text-align:center;">
+        <h1 style="color:#fff;margin:0;font-size:28px;">📦 Pickup Reminder</h1>
+    </div>
+    <div style="padding:30px;">
+        <h2 style="color:#e2e8f0;" th:text="'Hi ' + ${donorName} + ','">Hi Donor,</h2>
+        <p style="color:#94a3b8;">Your donation pickup is scheduled for tomorrow:</p>
+        <div style="background:#1e293b;border-radius:12px;padding:20px;margin:20px 0;">
+            <table style="width:100%;border-collapse:collapse;">
+                <tr><td style="color:#94a3b8;padding:8px;">📅 Date</td><td style="color:#e2e8f0;text-align:right;" th:text="${pickupDate}">Date</td></tr>
+                <tr><td style="color:#94a3b8;padding:8px;">🕐 Time</td><td style="color:#e2e8f0;text-align:right;" th:text="${timeSlot}">Time</td></tr>
+                <tr><td style="color:#94a3b8;padding:8px;">📍 Address</td><td style="color:#e2e8f0;text-align:right;" th:text="${address}">Address</td></tr>
+            </table>
+        </div>
+        <p style="color:#94a3b8;">Our volunteer will contact you before arriving. Thank you for your generosity! 🙏</p>
+    </div>
+</div>
+</body>
+</html>
